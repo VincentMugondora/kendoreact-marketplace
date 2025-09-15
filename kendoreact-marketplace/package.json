@@ -10,18 +10,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@progress/kendo-react-animation": "^12.0.1",
     "@progress/kendo-react-buttons": "^12.0.1",
+    "@progress/kendo-react-data-tools": "^12.0.1",
     "@progress/kendo-react-dateinputs": "^12.0.1",
     "@progress/kendo-react-dialogs": "^12.0.1",
     "@progress/kendo-react-dropdowns": "^12.0.1",
     "@progress/kendo-react-grid": "^12.0.1",
+    "@progress/kendo-react-indicators": "^12.0.1",
     "@progress/kendo-react-inputs": "^12.0.1",
+    "@progress/kendo-react-labels": "^12.0.1",
     "@progress/kendo-react-layout": "^12.0.1",
+    "@progress/kendo-react-listbox": "^12.0.1",
     "@progress/kendo-react-listview": "^12.0.1",
+    "@progress/kendo-react-notification": "^12.0.1",
+    "@progress/kendo-react-popup": "^12.0.1",
+    "@progress/kendo-react-progressbars": "^12.0.1",
     "@progress/kendo-react-tooltip": "^12.0.1",
     "@progress/kendo-theme-default": "^12.0.1",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
