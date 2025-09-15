@@ -6,6 +6,7 @@ import { Button } from '@progress/kendo-react-buttons'
 import { Tooltip } from '@progress/kendo-react-tooltip'
 import { DatePicker } from '@progress/kendo-react-dateinputs'
 import { Link } from 'react-router-dom'
+import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs'
 import BookingDialog from '../components/BookingDialog'
 import { SAMPLE_SERVICES, CATEGORIES } from '../data/sampleServices'
 
@@ -13,6 +14,7 @@ export default function SearchPage() {
   const [category, setCategory] = useState('All')
   const [maxPrice, setMaxPrice] = useState()
   const [selectedService, setSelectedService] = useState(null)
+  const [confirmed, setConfirmed] = useState(null)
 
   const filtered = useMemo(() => {
     return SAMPLE_SERVICES.filter((s) => {
@@ -80,9 +82,27 @@ export default function SearchPage() {
         onConfirm={(payload) => {
           console.log('booking', payload)
           setSelectedService(null)
-          alert('Booking confirmed!')
+          setConfirmed(payload)
         }}
       />
+
+      {confirmed && (
+        <Dialog title="Booking Confirmed" onClose={() => setConfirmed(null)} width={420}>
+          <div style={{ display: 'grid', gap: 8 }}>
+            <div>
+              Your booking for <strong>{confirmed.service.name}</strong> is confirmed.
+            </div>
+            <div className="k-text-muted">
+              Date: {confirmed.date?.toLocaleDateString?.() || String(confirmed.date)}
+              <br />
+              Time: {confirmed.time?.toLocaleTimeString?.([], { hour: '2-digit', minute: '2-digit' }) || String(confirmed.time)}
+            </div>
+          </div>
+          <DialogActionsBar>
+            <Button themeColor="primary" onClick={() => setConfirmed(null)}>OK</Button>
+          </DialogActionsBar>
+        </Dialog>
+      )}
     </div>
   )
 }

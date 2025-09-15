@@ -6,6 +6,7 @@ import { Button } from '@progress/kendo-react-buttons'
 import { Tooltip } from '@progress/kendo-react-tooltip'
 import { Link } from 'react-router-dom'
 import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs'
+import { motion } from 'framer-motion'
 import BookingDialog from '../components/BookingDialog'
 import { SAMPLE_SERVICES } from '../data/sampleServices'
 
@@ -26,7 +27,14 @@ export default function HomePage() {
   const Item = (props) => {
     const s = props.dataItem
     return (
-      <div className="k-card" style={{ padding: 12, display: 'flex', gap: 12, alignItems: 'center' }}>
+      <motion.div
+        className="k-card"
+        style={{ padding: 12, display: 'flex', gap: 12, alignItems: 'center' }}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
+        whileHover={{ y: -2 }}
+      >
         <img src={s.image} alt={s.name} width={100} height={60} style={{ objectFit: 'cover', borderRadius: 6 }} />
         <div style={{ flex: 1 }}>
           <div className="k-card-title">{s.name}</div>
@@ -43,7 +51,7 @@ export default function HomePage() {
             <Button>Details</Button>
           </Link>
         </div>
-      </div>
+      </motion.div>
     )
   }
 
