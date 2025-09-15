@@ -1,6 +1,8 @@
 import './App.css'
+import { useEffect, useState } from 'react'
 import { NavLink, Routes, Route } from 'react-router-dom'
 import { AppBar, AppBarSection, AppBarSpacer } from '@progress/kendo-react-layout'
+import { Switch } from '@progress/kendo-react-inputs'
 
 import HomePage from './pages/HomePage'
 import SearchPage from './pages/SearchPage'
@@ -9,6 +11,15 @@ import KnowledgePage from './pages/KnowledgePage'
 import ServiceDetailPage from './pages/ServiceDetailPage'
 
 function App() {
+  const [dark, setDark] = useState(() => (
+    typeof window !== 'undefined' ? (localStorage.getItem('theme') === 'dark') : false
+  ))
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', dark)
+    localStorage.setItem('theme', dark ? 'dark' : 'light')
+  }, [dark])
+
   const linkStyle = ({ isActive }) => ({
     textDecoration: 'none',
     padding: '8px 12px',
@@ -23,7 +34,7 @@ function App() {
         <AppBarSection>
           <span className="k-font-weight-bold">Kendo Marketplace</span>
         </AppBarSection>
-        <AppBarSpacer style={{ width: 32 }} />
+        <AppBarSpacer style={{ width: 16 }} />
         <AppBarSection>
           <nav style={{ display: 'flex', gap: 8 }}>
             <NavLink to="/" style={linkStyle} end>Home</NavLink>
@@ -31,6 +42,13 @@ function App() {
             <NavLink to="/admin" style={linkStyle}>Admin</NavLink>
             <NavLink to="/knowledge" style={linkStyle}>Knowledge</NavLink>
           </nav>
+        </AppBarSection>
+        <AppBarSpacer style={{ flex: 1 }} />
+        <AppBarSection>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span className="k-text-muted">Dark</span>
+            <Switch checked={dark} onChange={(e) => setDark(e.value)} />
+          </div>
         </AppBarSection>
       </AppBar>
 

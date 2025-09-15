@@ -1,16 +1,22 @@
 :root {
+  --app-bg: #f7f8fa;
+  --app-fg: #1b1f23;
+  --app-muted: #6b7280;
+  --container: 1200px;
+  color-scheme: light dark;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  --app-bg: #0f172a; /* slate-900 */
+  --app-fg: #e5e7eb; /* gray-200 */
+  --app-muted: #9ca3af; /* gray-400 */
 }
 
 a {
@@ -24,10 +30,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: var(--app-bg);
+  color: var(--app-fg);
 }
 
 h1 {
@@ -35,34 +41,46 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Let Kendo components define button styles; avoid overriding */
+
+/* Layout helpers */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* AppBar enhancements */
+.k-appbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: saturate(180%) blur(8px);
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, #e0e7ff 0%, #fff1f2 100%);
+  border-radius: 16px;
+  padding: 32px;
+}
+.dark .hero {
+  background: linear-gradient(135deg, #0b1220 0%, #1f1020 100%);
+}
+
+.hero h1 {
+  margin: 0 0 8px 0;
+}
+.hero p {
+  margin: 0 0 16px 0;
+  color: var(--app-muted);
+}
+
+/* Cards micro-interactions */
+.k-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.k-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }

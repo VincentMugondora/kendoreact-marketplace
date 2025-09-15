@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Input } from '@progress/kendo-react-inputs'
 import { Button } from '@progress/kendo-react-buttons'
+import { Skeleton } from '@progress/kendo-react-indicators'
 
 export default function KnowledgePage() {
   const [query, setQuery] = useState('')
@@ -26,7 +27,7 @@ export default function KnowledgePage() {
   }
 
   return (
-    <div style={{ padding: 24 }}>
+    <div className="container" style={{ paddingTop: 24, paddingBottom: 24 }}>
       <h2>Knowledge Center</h2>
       <p className="k-text-secondary">Ask product questions. This page can later integrate Nuclia for RAG search.</p>
       <div style={{ display: 'flex', gap: 12, maxWidth: 720, marginTop: 12 }}>
@@ -40,6 +41,17 @@ export default function KnowledgePage() {
           {loading ? 'Searching...' : 'Search'}
         </Button>
       </div>
+
+      {loading && (
+        <div style={{ marginTop: 16, display: 'grid', gap: 12 }}>
+          <div className="k-card" style={{ padding: 16 }}>
+            <Skeleton shape="text" style={{ width: '40%', height: 20, marginBottom: 8 }} />
+            <Skeleton style={{ width: '100%', height: 12, marginBottom: 6 }} />
+            <Skeleton style={{ width: '85%', height: 12, marginBottom: 6 }} />
+            <Skeleton style={{ width: '70%', height: 12 }} />
+          </div>
+        </div>
+      )}
 
       <div style={{ marginTop: 16, display: 'grid', gap: 12 }}>
         {results.map((r) => (

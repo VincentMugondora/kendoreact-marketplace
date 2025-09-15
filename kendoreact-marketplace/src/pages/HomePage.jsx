@@ -48,10 +48,11 @@ export default function HomePage() {
   }
 
   return (
-    <div style={{ padding: 24 }}>
-      <div style={{ marginBottom: 24 }}>
-        <h2>Find your next service</h2>
-        <div style={{ display: 'flex', gap: 12, maxWidth: 640 }}>
+    <div className="container" style={{ paddingTop: 24, paddingBottom: 24 }}>
+      <section className="hero">
+        <h1>Find services. Book instantly.</h1>
+        <p>Discover high‑quality services near you. Search by name or category and book in seconds.</p>
+        <div style={{ display: 'flex', gap: 12, maxWidth: 720, flexWrap: 'wrap' }}>
           <Input value={query} onChange={(e) => setQuery(e.value)} placeholder="Search services..." />
           <AutoComplete
             data={serviceNames}
@@ -61,10 +62,14 @@ export default function HomePage() {
             suggest
             style={{ width: 260 }}
           />
+          <Link to="/search" style={{ textDecoration: 'none' }}>
+            <Button themeColor="primary">Explore Marketplace</Button>
+          </Link>
         </div>
-      </div>
+      </section>
 
-      <ListView data={filtered} item={Item} style={{ maxWidth: 860 }} />
+      <h3 style={{ marginTop: 24, marginBottom: 12 }}>Featured services</h3>
+      <ListView data={filtered} item={Item} style={{ maxWidth: 980 }} />
 
       <BookingDialog
         service={selectedService}
