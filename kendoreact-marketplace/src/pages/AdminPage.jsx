@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { TabStrip, TabStripTab } from '@progress/kendo-react-layout'
 import { Grid, GridColumn, GridToolbar } from '@progress/kendo-react-grid'
 import { Button } from '@progress/kendo-react-buttons'
@@ -31,6 +31,7 @@ function ServicesTab() {
   const [data, setData] = useState(() => SAMPLE_SERVICES.map(s => ({ ...s, inEdit: false })))
   const categories = useMemo(() => CATEGORIES.filter(c => c !== 'All'), [])
   const editField = 'inEdit'
+  const fileInputRef = useRef(null)
 
   const itemChange = (e) => {
     const { dataItem, field, value } = e
@@ -40,6 +41,37 @@ function ServicesTab() {
   const addNew = () => {
     const newId = (data.reduce((max, it) => Math.max(max, it.id), 0) || 0) + 1
     setData([{ id: newId, name: '', category: categories[0] || 'General', price: 0, rating: 0, description: '', image: '', inEdit: true, isNew: true }, ...data])
+  }
+
+  const importCSV = async (file) => {
+    try {
+      const text = await file.text()
+      const lines = text.split(/\r?\n/).filter(Boolean)
+      // Expect header or simple rows. If header present, skip first line if it contains 'name'
+      const start = lines[0].toLowerCase().includes('name') ? 1 : 0
+      let nextId = (data.reduce((max, it) => Math.max(max, it.id), 0) || 0) + 1
+      const imported = []
+      for (let i = start; i < lines.length; i++) {
+        const cols = lines[i].split(',').map(s => s.trim())
+        if (!cols[0]) continue
+        const [name, category = categories[0] || 'General', price = '0', rating = '0', description = '', image = ''] = cols
+        imported.push({
+          id: nextId++,
+          name,
+          category,
+          price: Number(price) || 0,
+          rating: Number(rating) || 0,
+          description,
+          image,
+          inEdit: false
+        })
+      }
+      if (imported.length) {
+        setData(prev => [...imported, ...prev])
+      }
+    } catch (e) {
+      alert('Failed to import CSV: ' + e.message)
+    }
   }
 
   const edit = (dataItem) => {
@@ -130,7 +162,7 @@ function ServicesTab() {
             min={0}
             step={5}
             format="$#,##0.##"
-            width="100%"
+            style={{ width: '100%' }}
           />
         ) : (
           <span>{dataItem[field]}</span>
@@ -148,7 +180,20 @@ function ServicesTab() {
         style={{ maxWidth: 1100 }}
       >
         <GridToolbar>
-          <Button themeColor="primary" onClick={addNew}>Add Service</Button>
+          <Button themeColor="primary" onClick={addNew} style={{ marginRight: 8 }}>Add Service</Button>
+          <input
+            type="file"
+            accept=".csv"
+            ref={fileInputRef}
+            style={{ display: 'none' }}
+            onChange={(e) => {
+              const f = e.target.files?.[0]
+              if (f) importCSV(f)
+              // reset so selecting the same file again re-triggers change
+              e.target.value = ''
+            }}
+          />
+          <Button onClick={() => fileInputRef.current?.click()}>Import CSV</Button>
         </GridToolbar>
         <GridColumn field="name" title="Name" cell={TextCell} width="220" />
         <GridColumn field="category" title="Category" cell={CategoryCell} width="160" />

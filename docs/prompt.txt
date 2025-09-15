@@ -1,0 +1,63 @@
+Perfect — let’s make you a **Windsurf prompt** that covers everything: backend + stunning UI + use of KendoReact (for the challenge).
+
+Here’s a complete **master prompt** you can drop into Windsurf:
+
+---
+
+### 🌊 Windsurf Prompt
+
+You are an expert full-stack developer.
+I want to build a **marketplace web app** for the **KendoReact “Build Without Boundaries” challenge**.
+
+### Requirements:
+
+1. **Frontend (React + KendoReact + TailwindCSS + Framer Motion)**
+
+   * Use **at least 10 KendoReact free components** (Grid, Inputs, Buttons, Dropdowns, Charts, etc.)
+   * Create a **modern, responsive UI** with Tailwind and animations using Framer Motion.
+   * Pages:
+
+     * Landing Page (hero banner, call-to-action)
+     * Marketplace (product grid, filters, categories, search bar)
+     * Product Details Page
+     * Cart & Checkout Flow
+     * User Profile (buyer & seller dashboard)
+     * Admin Dashboard (manage users, products, orders)
+   * Features:
+
+     * Dark/Light mode toggle
+     * Mobile-first design
+     * Smooth micro-interactions (hover, click, transitions)
+
+2. **Backend (MERN or FastAPI + MongoDB)**
+
+   * Authentication (JWT-based) for buyers, sellers, admins
+   * Product Listings (CRUD: create, read, update, delete)
+   * Search & Filtering APIs
+   * Cart & Checkout APIs
+   * Order & Payment management (Stripe/PayPal + add hooks for EcoCash/Zim payments)
+   * Messaging/Chat system between buyers & sellers
+   * Admin APIs for moderation
+
+3. **AI Assistant (for “Code Smarter, Not Harder” prize category)**
+
+   * Use **KendoReact AI Coding Assistant** to scaffold or implement parts of the app (document which parts).
+
+4. **Nuclia RAG Integration (optional for “RAGs to Riches” prize)**
+
+   * Add **Nuclia RAG search** to enhance product search with semantic/AI-powered queries.
+
+5. **Other Notes**
+
+   * License: MIT
+   * Include strong **accessibility** and **usability**
+   * Make it visually **stunning** and **easy to use**
+   * Optimize performance (lazy loading, pagination)
+
+### Deliverables:
+
+* Full **frontend React app** with KendoReact UI components
+* **Backend API** with user/product/order flows
+* Clear **documentation** (README + where AI was used)
+* MIT license file
+* Deployment instructions (Vercel/Netlify for frontend, Render/Heroku/AWS for backend)

@@ -4,6 +4,8 @@ import { DropDownList } from '@progress/kendo-react-dropdowns'
 import { NumericTextBox } from '@progress/kendo-react-inputs'
 import { Button } from '@progress/kendo-react-buttons'
 import { Tooltip } from '@progress/kendo-react-tooltip'
+import { DatePicker } from '@progress/kendo-react-dateinputs'
+import { Link } from 'react-router-dom'
 import BookingDialog from '../components/BookingDialog'
 import { SAMPLE_SERVICES, CATEGORIES } from '../data/sampleServices'
 
@@ -24,11 +26,16 @@ export default function SearchPage() {
     const s = props.dataItem
     return (
       <td>
-        <Tooltip anchorElement="target" position="top">
-          <Button themeColor="primary" size="small" onClick={() => setSelectedService(s)} title="Book this service">
-            Book
-          </Button>
-        </Tooltip>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <Tooltip anchorElement="target" position="top">
+            <Button themeColor="primary" size="small" onClick={() => setSelectedService(s)} title="Book this service">
+              Book
+            </Button>
+          </Tooltip>
+          <Link to={`/service/${s.id}`} style={{ textDecoration: 'none' }}>
+            <Button size="small">Details</Button>
+          </Link>
+        </div>
       </td>
     )
   }
@@ -36,7 +43,7 @@ export default function SearchPage() {
   return (
     <div style={{ padding: 24 }}>
       <h2>Search Services</h2>
-      <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 12 }}>
+      <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' }}>
         <label>Category</label>
         <DropDownList
           data={CATEGORIES}
@@ -54,6 +61,8 @@ export default function SearchPage() {
           placeholder="Any"
           style={{ width: 160 }}
         />
+        <label>Date</label>
+        <DatePicker style={{ width: 180 }} />
         <Button onClick={() => { setCategory('All'); setMaxPrice(undefined) }}>Reset</Button>
       </div>
 

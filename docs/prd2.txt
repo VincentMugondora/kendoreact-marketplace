@@ -1,0 +1,121 @@
+Got it ✅ Let’s make you a **revised PRD (Product Requirements Document)** for the **KendoReact “Build Without Boundaries” challenge** marketplace app.
+
+---
+
+# 📄 Product Requirements Document (PRD)
+
+**Project Name:** KendoMarket – React Marketplace App
+**Author:** Vincent Mugondora
+**License:** MIT
+**Date:** Sept 2025
+
+---
+
+## 1. Overview
+
+KendoMarket is a **modern online marketplace web app** built with **React and KendoReact free UI components**.
+It allows users to buy and sell products with a **stunning, responsive, and user-friendly UI**.
+The app will also feature a **backend API** for handling authentication, product listings, checkout, and order management.
+
+This project is for the **KendoReact Build Without Boundaries Challenge**, showcasing:
+
+* **At least 10 KendoReact components**
+* Integration with the **KendoReact AI Coding Assistant**
+* Optional **Nuclia RAG integration** for AI-powered product search
+
+---
+
+## 2. Goals & Success Criteria
+
+* ✅ Use **10+ KendoReact Free Components** (Grid, Button, Input, Dropdown, Form, Chart, Tabs, Modal, Notification, Avatar, etc.)
+* ✅ Deliver a **responsive UI** with accessibility best practices
+* ✅ Provide smooth UX with **animations (Framer Motion)**
+* ✅ Implement a **backend API** for marketplace functionality
+* ✅ Support **buyers, sellers, and admins** with role-based dashboards
+* ✅ Demonstrate **AI Assistant usage** in development
+* ✅ Optional: Use **Nuclia RAG** for intelligent semantic search
+
+Success will be judged on:
+
+1. **Use of underlying technology (React + KendoReact)**
+2. **Usability & user experience**
+3. **Accessibility compliance**
+4. **Creativity and uniqueness**
+
+---
+
+## 3. Features
+
+### 3.1 User Roles
+
+* **Buyer:** Browse products, search, add to cart, checkout, track orders
+* **Seller:** Add/manage products, view sales, respond to buyer messages
+* **Admin:** Manage users, products, orders, moderate content
+
+### 3.2 Pages & UI Components
+
+1. **Landing Page** – Hero banner, featured products, call-to-action
+2. **Marketplace Page** – Product grid (Kendo Grid), search (Input + Dropdown), filters (MultiSelect, Checkboxes), pagination
+3. **Product Details Page** – Tabs for description/reviews, Add to Cart button, Rating display
+4. **Cart & Checkout** – Cart summary (ListView), Checkout Form (Inputs, Dropdowns, Button, Validation)
+5. **User Profile** – Dashboard with Tabs for Orders, Wishlist, Account Settings
+6. **Seller Dashboard** – Product CRUD with Kendo Grid + Modal forms
+7. **Admin Dashboard** – User & product management with Charts for analytics
+
+### 3.3 Backend Functionality
+
+* Authentication (JWT-based)
+* Product CRUD APIs
+* Search & Filtering endpoints
+* Cart & Checkout endpoints
+* Order management
+* Messaging system between buyers & sellers
+* Admin endpoints
+
+### 3.4 Integrations
+
+* **KendoReact AI Coding Assistant** – used to scaffold pages, generate Grid configurations, and validation logic
+* **Nuclia RAG (optional)** – semantic product search
+
+---
+
+## 4. Technical Stack
+
+**Frontend:**
+
+* React (with Vite/CRA/Next.js)
+* KendoReact free components
+* TailwindCSS + Framer Motion
+* React Router
+
+**Backend:**
+
+* Node.js + Express (or FastAPI alternative)
+* MongoDB (Mongoose ORM)
+* JWT for authentication
+* Stripe/PayPal for payments (hooks for EcoCash/ZimPay)
+
+**Deployment:**
+
+* Frontend → Vercel/Netlify
+* Backend → Render/Heroku/AWS
+* Database → MongoDB Atlas
+
+---
+
+## 5. Non-Functional Requirements
+
+* **Accessibility:** WCAG-compliant
+* **Performance:** Lazy loading, caching, pagination
+* **Security:** Encrypted passwords, role-based access control
+* **Scalability:** Cloud deployment with horizontal scaling
+
+---
+
+## 6. Deliverables
+
+* Frontend React app (with 10+ KendoReact components)
+* Backend API with authentication & marketplace features
+* Documentation (README with setup + where AI was used)
+* MIT License file
+* Submission post (using the official challenge template)
