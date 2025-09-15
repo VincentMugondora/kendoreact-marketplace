@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import SearchPage from './pages/SearchPage'
 import AdminPage from './pages/AdminPage'
 import KnowledgePage from './pages/KnowledgePage'
+import ServiceDetailPage from './pages/ServiceDetailPage'
 
 function App() {
   const linkStyle = ({ isActive }) => ({
@@ -39,6 +40,7 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/knowledge" element={<KnowledgePage />} />
+          <Route path="/service/:id" element={<ServiceDetailPage />} />
         </Routes>
       </main>
     </div>
