@@ -13,6 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@import "tailwindcss";
+
 .dark {
   --app-bg: #0f172a; /* slate-900 */
   --app-fg: #e5e7eb; /* gray-200 */
