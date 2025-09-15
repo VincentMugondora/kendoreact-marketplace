@@ -1,0 +1,198 @@
+Perfect, Vincent 🚀 — since you want to use **Windsurf** for this KendoReact “Build Without Boundaries” challenge, I’ll create a **Product Requirements Document (PRD)** tailored to this hackathon + a **prompt pack** you can feed Windsurf (step by step), and a **docs/resources bundle** so you have everything in one place.
+
+---
+
+# 📑 Product Requirements Document (PRD) — *Kendo Marketplace App*
+
+### 1. Project Overview
+
+* **Project Name**: Kendo Marketplace
+* **Goal**: Build a React marketplace dashboard using at least **10 KendoReact Free components**, showcasing usability, accessibility, and creativity.
+* **Scope**:
+
+  * A multi-role app (User + Admin).
+  * Users can browse/search/book services.
+  * Admin can manage services, bookings, and analytics.
+  * Optional: Nuclia-powered **RAG Knowledge Center** page.
+  * Bonus: Document **AI Coding Assistant (Kendo)** and **Windsurf** usage to qualify for *Code Smarter* and *RAGs to Riches*.
+
+---
+
+### 2. Key Features
+
+#### User-facing
+
+* Home page with featured services + search bar.
+* Search & filter page (category, price, date).
+* Service detail page (images, description, reviews).
+* Booking modal (DatePicker + TimePicker).
+* Booking confirmation dialog.
+
+#### Admin-facing
+
+* Dashboard with Tab navigation (users, services, analytics).
+* Grid with CRUD (Create, Read, Update, Delete) for services.
+* Upload (CSV import for batch services).
+* Simple analytics cards (earnings, top services).
+
+#### Optional (Nuclia RAG Integration)
+
+* Knowledge page: upload reference docs + semantic search Q\&A powered by Nuclia API.
+
+---
+
+### 3. Technical Requirements
+
+* **Framework**: React (Vite)
+* **UI**: KendoReact Free Components (≥10)
+* **Theme**: `@progress/kendo-theme-default`
+* **State**: React hooks (or Zustand if needed)
+* **Backend**: Mock data / local JSON (extendable with FastAPI/Express if needed)
+* **Accessibility**: WCAG compliance (Kendo components are ARIA-ready by default).
+
+---
+
+### 4. KendoReact Components to Use (≥10)
+
+* Grid
+* DatePicker
+* TimePicker
+* DropDownList
+* AutoComplete
+* Button
+* Input / NumericTextBox
+* ListView
+* Dialog
+* TabStrip
+* Tooltip
+
+---
+
+### 5. Success Criteria (Judging)
+
+* **Technology Use**: ≥10 KendoReact Free Components.
+* **Usability/UX**: Simple booking flow, clean dashboard, responsive design.
+* **Accessibility**: Fully keyboard navigable, ARIA labels.
+* **Creativity**: Marketplace demo w/ optional AI Knowledge page.
+* **Bonus**: AI Coding Assistant + Nuclia documented usage.
+
+---
+
+# 🧑‍💻 Windsurf Prompt Pack
+
+You’ll feed these to Windsurf step by step to generate the code.
+
+---
+
+### Prompt 1 — Project Setup
+
+```plaintext
+Create a Vite + React project called "kendoreact-marketplace".
+Install the following dependencies:
+- @progress/kendo-react-grid
+- @progress/kendo-react-dateinputs
+- @progress/kendo-react-dropdowns
+- @progress/kendo-react-buttons
+- @progress/kendo-react-inputs
+- @progress/kendo-react-listview
+- @progress/kendo-react-dialogs
+- @progress/kendo-react-layout
+- @progress/kendo-react-tooltip
+- @progress/kendo-theme-default
+
+Generate a basic file structure:
+- src/components (for UI components)
+- src/pages (for Home, Search, Admin, Knowledge)
+- src/App.jsx (main router + layout)
+- src/data/sampleServices.js (mock data)
+```
+
+---
+
+### Prompt 2 — App Layout
+
+```plaintext
+Create a main layout in App.jsx that includes:
+- A top navigation bar (Home, Search, Admin, Knowledge).
+- Routes for each page.
+- Apply Kendo theme styles globally.
+```
+
+---
+
+### Prompt 3 — Home Page
+
+```plaintext
+Create HomePage.jsx:
+- A hero section with a search bar (Input + AutoComplete).
+- A featured services carousel using ListView.
+- A "Book Now" button that opens a Dialog with DatePicker + TimePicker.
+```
+
+---
+
+### Prompt 4 — Search Page
+
+```plaintext
+Create SearchPage.jsx:
+- Filters at the top (DropDownList for category, NumericTextBox for price).
+- A Grid showing services matching filters.
+- Each row has a "Book" Button that opens the booking Dialog.
+```
+
+---
+
+### Prompt 5 — Admin Dashboard
+
+```plaintext
+Create AdminPage.jsx with a TabStrip:
+- Tab 1: Services Grid with CRUD (Add/Edit/Delete).
+- Tab 2: Users Grid (mock users).
+- Tab 3: Analytics cards (total bookings, revenue, top service).
+```
+
+---
+
+### Prompt 6 — Booking Dialog
+
+```plaintext
+Create BookingDialog.jsx:
+- Props: service, onClose, onConfirm.
+- Form fields: DatePicker, TimePicker, Name (Input), Contact (Input).
+- Actions: Cancel, Confirm (primary Button).
+```
+
+---
+
+### Prompt 7 — Knowledge Page (Nuclia Integration)
+
+```plaintext
+Create KnowledgePage.jsx:
+- A search bar (Input).
+- On submit, call Nuclia API (mock with fetch).
+- Display answers in a Card with source links.
+```
+
+---
+
+# 📚 Docs & Resources
+
+1. **KendoReact Free Components** (official list):
+   [https://www.telerik.com/kendo-react-ui/components/free-react-ui-components/](https://www.telerik.com/kendo-react-ui/components/free-react-ui-components/)
+
+2. **KendoReact Docs**:
+   [https://www.telerik.com/kendo-react-ui/components/](https://www.telerik.com/kendo-react-ui/components/)
+
+3. **KendoReact AI Coding Assistant** (for bonus prize):
+   [https://www.telerik.com/kendo-react-ui/ai-coding-assistant/](https://www.telerik.com/kendo-react-ui/ai-coding-assistant/)
+
+4. **Nuclia RAG Docs** (for bonus prize):
+   [https://docs.nuclia.dev](https://docs.nuclia.dev)
+
+5. **Submission Template**:
+   [Hackathon Template](https://www.telerik.com/kendo-react-ui/build-without-boundaries/)
+
+---
+
+✅ Next Step for You:
+Do you want me to **generate the actual Windsurf-ready repo skeleton** (file tree + base code for each page) so you can just drop it into Windsurf and refine with prompts?
